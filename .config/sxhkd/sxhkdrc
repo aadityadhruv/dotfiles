@@ -123,11 +123,22 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
+
+# Multimedia keys
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+# Still multimedia
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+# still
+XF86AudioMute
+  amixer -D pulse sset Master toggle-mute
 
+# Brightness up
+XF86MonBrightnessUp
+	brightnessctl set +10%
 
-XF86MonBrightness{Up, Down}
-	xbacklight -{inc, dec} 5 &
+# And brightness down
+XF86MonBrightnessDown
+	brightnessctl set 10-%
