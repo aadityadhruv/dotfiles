@@ -1,5 +1,6 @@
 #! /bin/sh
 ~/.screenlayout/work.sh
+export GPG_TTY=$(tty)
 nitrogen --restore
 ~/.config/polybar/forest/launch.sh 2> /dev/null
 #picom --config  ~/.config/picom/picom.conf --experimental-backends  2> /dev/null &
