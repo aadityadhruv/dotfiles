@@ -15,3 +15,14 @@ For Void:
 pacman -S ---> xbps-install 
 
 xorg-server --> xorg
+
+
+On Arch:
+
+![alt arch][arch.png "Dots on Arch"]
+
+
+
+On Void:
+
+![alt void][void.png "Dots on Void"]
