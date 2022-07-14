@@ -1,0 +1,7 @@
+1) WM
+2) Polybar
+3) Fonts - Nerd fonts, Meslo
+4) Cursor - Simple dark 
+5) File manager - pcmanfm
+6) Audio - pipewire
+7) Bluetooth - blueman
