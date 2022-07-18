@@ -25,8 +25,8 @@ window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-	border:							0px 0px 0px 0px;
-	border-color:					@ac;
+	border:							1px 1px 1px 1px;
+	border-color:					@fg;
     border-radius:                  0px;
 	width:							700px;
     height:                         600px;
@@ -39,7 +39,7 @@ prompt {
     enabled: 						true;
 	padding: 						0px;
 	background-color: 				@bga;
-	text-color: 					@ac;
+	text-color: 					@fg;
 	font:							"feather 12";
 }
 
@@ -61,7 +61,7 @@ inputbar {
     expand:                         false;
 	border:							0px 0px 1px 0px;
     border-radius:                  0px;
-	border-color:					@re;
+	border-color:					@fg;
     margin:                         0px;
     padding:                        10px;
 }
@@ -114,5 +114,5 @@ element selected {
     text-color:                     @bg;
 	border:							2px 2px 2px 2px;
     border-radius:                      0px;
-    border-color:                  	@aq;
+    border-color:                  	@fg;
 }
