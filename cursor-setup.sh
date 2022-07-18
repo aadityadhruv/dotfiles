@@ -14,4 +14,8 @@ touch ~/.config/gtk-3.0/settings.ini
 echo "[Settings]\ngtk-cursor-theme-name=Simp1e-Dark" > ~/.config/gtk-3.0/settings.ini
 
 
+
+flatpak --user override --filesystem=/usr/share/icons/:ro
+
+
 echo "Success!"
