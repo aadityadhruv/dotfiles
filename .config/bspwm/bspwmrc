@@ -3,6 +3,7 @@
 export GPG_TTY=$(tty)
 nitrogen --restore
 ~/.config/polybar/forest/launch.sh 2> /dev/null
+lxappearance &
 #picom --config  ~/.config/picom/picom.conf --experimental-backends  2> /dev/null &
 #picom --config  ~/.config/picom/picom.conf --experimental-backends  2> /dev/null &
 spgrep -x sxhkd > /dev/null || sxhkd &
