@@ -15,6 +15,7 @@ set  t_Co=256
 set number
 set ruler
 
+
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-Up> :tabfirst<CR>
@@ -22,7 +23,11 @@ nnoremap <C-Down> :tablast<CR>
 nnoremap <C-S-Right> :tabmove +1<CR>
 nnoremap <C-S-Left> :tabmove -1<CR>
 map <F1>  :NERDTreeTabsToggle<CR>
-nnoremap <leader>/ :'<,'>s/^/\/\/ <CR>
+xnoremap <C-c> :s/^/\/\/ <CR>
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+xnoremap <Tab> > 
+xnoremap <S-Tab> < 
 nmap <C-p> <Plug>MarkdownPreviewToggle
 
 
