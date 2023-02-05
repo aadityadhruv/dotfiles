@@ -8,14 +8,14 @@ super + Return
 
 # program launcher
 super + @space
-	~/.config/polybar/forest/scripts/launcher.sh &	
+	~/.config/polybar/scripts/launcher.sh &	
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + {e}
-		~/.config/polybar/forest/scripts/powermenu.sh &
+		~/.config/polybar/scripts/powermenu.sh &
 #
 # bspwm hotkeys
 #
@@ -135,6 +135,14 @@ XF86AudioLowerVolume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+XF86AudioPlay
+	playerctl -a play-pause
+
+XF86AudioPrev
+	playerctl -a previous 
+
+XF86AudioNext
+	playerctl -a next
 
 # Brightness up
 XF86MonBrightnessUp
