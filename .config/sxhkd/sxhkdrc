@@ -125,29 +125,21 @@ super + {Left,Down,Up,Right}
 
 
 # Multimedia keys
-XF86AudioRaiseVolume
-  pactl set-sink-volume @DEFAULT_SINK@ +5%
+{F7}
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Still multimedia
-XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
+{F8}
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 # still
-XF86AudioMute
+{F6}
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-XF86AudioPlay
-	playerctl -a play-pause
-
-XF86AudioPrev
-	playerctl -a previous 
-
-XF86AudioNext
-	playerctl -a next
 
 # Brightness up
-XF86MonBrightnessUp
+{F10}
 	brightnessctl set +10%
 
 # And brightness down
-XF86MonBrightnessDown
+{F9}
 	brightnessctl set 10-%
