@@ -10,4 +10,4 @@ FILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"
 #sed -i -e "s/ac: .*/ac:   ${AC}FF;/g" $FILE
 #sed -i -e "s/se: .*/se:   ${SE}FF;/g" $FILE
 
-rofi -dpi 144 -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/scripts/rofi/launcher.rasi
+rofi -dpi 96 -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/scripts/rofi/launcher.rasi

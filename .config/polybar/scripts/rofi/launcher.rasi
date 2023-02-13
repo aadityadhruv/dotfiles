@@ -28,8 +28,8 @@ window {
 	border:							1px 1px 1px 1px;
 	border-color:					@fg;
     border-radius:                  0px;
-	  width:							            700px;
-    height:                         600px;
+	  width:							            500px;
+    height:                         500px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -92,11 +92,11 @@ element {
     text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0px;
-	padding: 					                12px;
+	padding: 					                6px;
 }
 
 element-icon {
-    size:                           36px;
+    size:                           24px;
     border:                         0px;
     background-color:	            @bg;
 }
