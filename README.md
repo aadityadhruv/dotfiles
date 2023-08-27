@@ -19,14 +19,14 @@ xorg-server --> xorg
 
 On Fedora (Current):
 
-![alt fedora](fedora-wayland.png "Dots on Fedora")
+![alt fedora](images/fedora-wayland.png "Dots on Fedora")
 
 On Arch:
 
-![alt arch](arch.png "Dots on Arch")
+![alt arch](images/arch.png "Dots on Arch")
 
 
 
 On Void:
 
-![alt void](void.png "Dots on Void")
+![alt void](images/void.png "Dots on Void")
