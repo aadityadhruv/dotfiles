@@ -1,0 +1,77 @@
+---
+groups:
+  gaming:
+    - wine
+    - wine-mono
+    - winetricks
+    - corectrl
+    - legendary
+    - mangohud
+    - mono-complete
+    - yt-dlp
+    - steam-devices
+    - yt-dlp-bash-completion
+    - yt-dlp-zsh-completion
+
+  development:
+    - alacritty
+    - git
+    - neovim
+    - bat
+    - fzf
+    - cmake
+    - cronie
+    - golang
+    - kubectl
+    - meson
+    - ninja-build
+    - podman
+    - podman-compose
+    - qemu
+    - rclone
+    - restic
+    - virt-manager
+    - yamllint
+    - clang
+    - golang
+    - nasm
+    - wireshark
+    - ruby-devel
+
+  tools:
+    - NetworkManager-tui
+    - playerctl
+    - btop
+    - htop
+    - neofetch
+    - nmap
+    - wireguard-tools
+    - bluez
+    - pipewire 
+    - lm_sensors
+
+  libraries:
+    - SDL2-devel
+    - ncurses-devel
+    - mesa-va-drivers-freeworld
+    - mesa-vdpau-drivers-freeworld
+
+  xorg:
+    - bspwm
+    - sxhkd
+    - polybar
+    - dunst
+    - maim
+    - nitrogen
+    - picom
+    - xsetroot
+    - xclip
+
+  wayland:
+    - wayland-devel
+    - rofi-wayland
+    - wev
+    - wofi
+    - xclip
+    - dunst
+    - grim

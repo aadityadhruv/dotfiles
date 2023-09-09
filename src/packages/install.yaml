@@ -1,0 +1,15 @@
+- name: Wayland Setup
+  hosts: all 
+  remote_user: root
+  connection: local
+  vars:
+    packages: "{{ lookup('file', './packages.yaml') | from_yaml }}"
+  tasks:
+    - name: Package Management
+      ansible.builtin.debug:
+        msg: Using packages.yaml as source
+    - name: Installing Packages
+      ansible.builtin.dnf:
+        name: "{{ packages.groups.development }}"
+        state: latest
+
