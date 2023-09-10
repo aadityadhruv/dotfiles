@@ -1,8 +1,12 @@
 ---
+username: aaditya
 packages:
   - development
   - gaming
 system:
 opt:
 config:
-
+  install_shell: true
+  install_wayland: true
+  install_xorg: false
+  install_misc: false
