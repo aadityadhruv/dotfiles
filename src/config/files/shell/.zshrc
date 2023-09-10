@@ -82,7 +82,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git
 zsh-autosuggestions 
 zsh-syntax-highlighting
-
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -120,3 +119,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
+compdef _doctl doctl
+export EDITOR="/usr/bin/nvim"
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+alias note="/bin/nvim /home/aaditya/Notes/general/$(date +'%d-%m-%y').md"
+source <(kubectl completion zsh)
+alias k=kubectl

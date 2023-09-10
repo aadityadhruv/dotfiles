@@ -1,0 +1,17 @@
+---
+misc:
+  - fonts
+  - fontconfig
+config_wayland:
+  - hypr
+  - waybar
+config_xorg:
+  - polybar
+  - bspwm
+  - sxhkd
+  - picom
+config_all:
+  - dunst
+  - alacritty
+  - nvim
+  - i3lock

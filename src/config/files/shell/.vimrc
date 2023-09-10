@@ -9,8 +9,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 set bs=2
-set ts=4
-set sw=4
+set ts=8
+set sw=8
 set  t_Co=256
 set number
 set ruler
@@ -23,6 +23,7 @@ nnoremap <C-Down> :tablast<CR>
 nnoremap <C-S-Right> :tabmove +1<CR>
 nnoremap <C-S-Left> :tabmove -1<CR>
 map <F1>  :NERDTreeTabsToggle<CR>
+noremap <C-f> :Files  <CR>
 xnoremap <C-c> :s/^/\/\/ <CR>
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
@@ -46,6 +47,7 @@ Plugin 'sainnhe/gruvbox-material'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'valloric/youcompleteme'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
 " All of your Plugins must be added before the following line
 
