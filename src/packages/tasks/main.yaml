@@ -9,3 +9,6 @@
     name: "{{ packages[item].flatpak }}"
     state: present 
   loop: "{{ config.packages }}"
+- name: Installing Rust
+  ansible.builtin.shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+  when: '"development" in config.packages'
