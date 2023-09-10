@@ -13,3 +13,6 @@
     - name: Configs Setup
       include_role:
         name: "src/config"
+    - name: System setup
+      include_role:
+        name: "src/system"

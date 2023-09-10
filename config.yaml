@@ -4,9 +4,13 @@ packages:
   - development
   - gaming
 system:
+  wireguard:
+    wg_path: /etc/wireguard/wg0.conf
+  install_wireguard: true 
+  install_systemd: true
 opt:
 config:
   install_shell: true
-  install_wayland: true
+  install_wayland: false
   install_xorg: false
   install_misc: false
