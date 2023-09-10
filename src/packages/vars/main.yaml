@@ -1,77 +1,109 @@
 ---
-groups:
+packages:
   gaming:
-    - wine
-    - wine-mono
-    - winetricks
-    - corectrl
-    - legendary
-    - mangohud
-    - mono-complete
-    - yt-dlp
-    - steam-devices
-    - yt-dlp-bash-completion
-    - yt-dlp-zsh-completion
+    dnf:
+      - wine
+      - wine-mono
+      - winetricks
+      - corectrl
+      - legendary
+      - mangohud
+      - mono-complete
+      - yt-dlp
+      - steam-devices
+      - yt-dlp-bash-completion
+      - yt-dlp-zsh-completion
+    flatpak:
+      - com.discordapp.Discord
+      - com.valvesoftware.Steam
+      - com.valvesoftware.SteamLink
+      - net.rpcs3.RPCS3
+      - org.DolphinEmu.dolphin-emu
+      - org.citra_emu.citra
+      - org.prismlauncher.PrismLauncher
+      - org.ryujinx.Ryujinx
+      - com.obsproject.Studio
+
 
   development:
-    - alacritty
-    - git
-    - neovim
-    - bat
-    - fzf
-    - cmake
-    - cronie
-    - golang
-    - kubectl
-    - meson
-    - ninja-build
-    - podman
-    - podman-compose
-    - qemu
-    - rclone
-    - restic
-    - virt-manager
-    - yamllint
-    - clang
-    - golang
-    - nasm
-    - wireshark
-    - ruby-devel
+    dnf:
+      - alacritty
+      - git
+      - neovim
+      - bat
+      - fzf
+      - cmake
+      - cronie
+      - golang
+      - kubectl
+      - meson
+      - ninja-build
+      - podman
+      - podman-compose
+      - qemu
+      - rclone
+      - restic
+      - virt-manager
+      - yamllint
+      - clang
+      - golang
+      - nasm
+      - wireshark
+      - ruby-devel
+      - flatpak
+    flatpak:
+      - rest.insomnia.Insomnia
 
   tools:
-    - NetworkManager-tui
-    - playerctl
-    - btop
-    - htop
-    - neofetch
-    - nmap
-    - wireguard-tools
-    - bluez
-    - pipewire 
-    - lm_sensors
+    dnf:
+      - NetworkManager-tui
+      - playerctl
+      - btop
+      - htop
+      - neofetch
+      - nmap
+      - wireguard-tools
+      - bluez
+      - pipewire 
+      - lm_sensors
+    flatpak:
+      - im.riot.Riot
+      - org.mozilla.Thunderbird
+      - md.obsidian.Obsidian
+      - com.github.GradienceTeam.Gradience
+      - com.github.jeromerobert.pdfarranger
+      - net.ankiweb.Anki
+      - org.signal.Signal
+      - sh.cider.Cider
 
   libraries:
-    - SDL2-devel
-    - ncurses-devel
-    - mesa-va-drivers-freeworld
-    - mesa-vdpau-drivers-freeworld
+    dnf:
+      - SDL2-devel
+      - ncurses-devel
+      - mesa-va-drivers-freeworld
+      - mesa-vdpau-drivers-freeworld
+    flatpak:
 
   xorg:
-    - bspwm
-    - sxhkd
-    - polybar
-    - dunst
-    - maim
-    - nitrogen
-    - picom
-    - xsetroot
-    - xclip
+    dnf:
+      - bspwm
+      - sxhkd
+      - polybar
+      - dunst
+      - maim
+      - nitrogen
+      - picom
+      - xsetroot
+      - xclip
+    flatpak:
 
   wayland:
-    - wayland-devel
-    - rofi-wayland
-    - wev
-    - wofi
-    - xclip
-    - dunst
-    - grim
+    dnf:
+      - wayland-devel
+      - rofi-wayland
+      - wev
+      - wofi
+      - xclip
+      - dunst
+      - grim
+    flatpak:
