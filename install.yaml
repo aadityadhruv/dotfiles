@@ -10,3 +10,6 @@
     - name: Package Management 
       include_role:
         name: "src/packages"
+    - name: Configs Setup
+      include_role:
+        name: "src/config"
