@@ -59,4 +59,4 @@
     dest: "/home/{{ config.username }}/.config/"
     backup: yes
   loop: "{{ config_all }}"
-  when: "'config.config.install_xorg' or 'config.config.install_wayland'"
+  when: "config.config.install_xorg or config.config.install_wayland"
