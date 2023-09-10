@@ -1,32 +1,18 @@
-# bspwm-dotfiles
-My BSPWM + Arch/Void setup config and dotfiles 
+# Dotfiles
+
+This repository is used to setup my Fedora Workstation. It consists of various Ansible playbooks that automate a
+large chunk of setting up tools, configuartion files and system packages. 
+
+While I use GNOME on my workstation, this playbook allows installation of either BSPWM (XOrg) or Hyprland (Wayland). 
+Those flags can be setup in `config.yaml`.
+
+All configuration should be done through `config.yaml`. The repo does let you install a lot of the packages by
+`groups`
 
 
-This is the setup I use when running BSPWM on Arch/Void. 
-
-The auto-setup should work to setup the config files. 
-Zsh setup works, but you need to run it twice since it takes you to the ZSH prompt. 
-
-Currently the script to install the packages are using pacman but to run it on Void (or any other distro) just change the syntax. 
+To understand how to configure the installation, refer to [`CONFIGURATION.md`](./CONFIGURATION.md)
 
 
-For Void:
+This is how the setup looks on Fedora with Hyprland as the TWM. 
 
-pacman -S ---> xbps-install 
-
-xorg-server --> xorg
-
-
-On Fedora (Current):
-
-![alt fedora](images/fedora-wayland.png "Dots on Fedora")
-
-On Arch:
-
-![alt arch](images/arch.png "Dots on Arch")
-
-
-
-On Void:
-
-![alt void](images/void.png "Dots on Void")
+![alt fedora](res/fedora-wayland.png "Hyprland on Fedora")
