@@ -7,29 +7,31 @@
 
     - name: Setup oh-my-zsh
       become: true
-      become_user: aaditya
+      become_user: {{ config.username }}
       ansible.builtin.shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
       ignore_errors: true
 
     - name: Setup zsh-autosuggestions
       become: true
-      become_user: aaditya
+      become_user: {{ config.username }}
       ansible.builtin.shell: 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
       ignore_errors: true
 
     - name: Setup zsh-syntax-highlighting
       become: true
-      become_user: aaditya
+      become_user: {{ config.username }}
       ansible.builtin.shell: 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
       ignore_errors: true
 
     - name: Setup powerlevel10k
       become: true
-      become_user: aaditya
+      become_user: {{ config.username }}
       ansible.builtin.shell: 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k'
       ignore_errors: true
 
     - name: Setup p10k, tmux and zshrc
+      become: true
+      become_user: {{ config.username }}
       ansible.builtin.copy:
         src: shell/{{ item }}
         dest: "/home/{{ config.username }}"
@@ -40,6 +42,8 @@
         - .tmux.conf
 
     - name: Setup vimrc and vim bundles
+      become: true
+      become_user: {{ config.username }}
       ansible.builtin.copy:
         src: shell/{{ item }}
         dest: "/home/{{ config.username }}"
@@ -82,6 +86,8 @@
   when: 'config.config.install_shell'
 
 - name: Install Dotfiles (Wayland)
+  become: true
+  become_user: {{ config.username }}
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/home/{{ config.username }}/.config/"
@@ -90,6 +96,8 @@
   when: 'config.config.install_wayland'
 
 - name: Install Dotfiles (Xorg)
+  become: true
+  become_user: {{ config.username }}
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/home/{{ config.username }}/.config/"
@@ -98,6 +106,8 @@
   when: 'config.config.install_xorg'
 
 - name: Install Dotfiles (All)
+  become: true
+  become_user: {{ config.username }}
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/home/{{ config.username }}/.config/"
