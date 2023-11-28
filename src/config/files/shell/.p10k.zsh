@@ -37,7 +37,7 @@
     vcs                     # git status
     
     # =========================[ Line #2 ]=========================
-#    newline                 # \n
+    newline                 # \n
     prompt_char             # prompt symbol
   )
 
@@ -217,7 +217,7 @@ typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,ROOT,REMOTE_SUDO,REMOTE,SUDO}_SUFFIX=']
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=002
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last #tab-completed #truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.

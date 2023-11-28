@@ -126,6 +126,6 @@ export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-alias note="/bin/nvim /home/aaditya/Notes/general/$(date +'%d-%m-%y').md"
+alias note="/bin/nvim /home/aaditya/Notes/general/$(date +'%Y-%m-%d').md"
 source <(kubectl completion zsh)
 alias k=kubectl

@@ -10,14 +10,17 @@ call vundle#begin()
 
 set bs=2
 set ts=8
-set sw=8
+set tw=80
 set  t_Co=256
 set number
 set ruler
+set shiftwidth=2 smarttab
+set expandtab
 
 
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+
+nnoremap <C-Left> :bp<CR>
+nnoremap <C-Right> :bn<CR>
 nnoremap <C-Up> :tabfirst<CR>
 nnoremap <C-Down> :tablast<CR>
 nnoremap <C-S-Right> :tabmove +1<CR>
@@ -25,10 +28,6 @@ nnoremap <C-S-Left> :tabmove -1<CR>
 map <F1>  :NERDTreeTabsToggle<CR>
 noremap <C-f> :Files  <CR>
 xnoremap <C-c> :s/^/\/\/ <CR>
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
-xnoremap <Tab> > 
-xnoremap <S-Tab> < 
 nmap <C-p> <Plug>MarkdownPreviewToggle
 
 
@@ -49,10 +48,11 @@ Plugin 'valloric/youcompleteme'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'tpope/vim-obsession'
 " All of your Plugins must be added before the following line
 
 let g:airline_theme='gruvbox_material'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:AutoClosePreserveDotReg = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
