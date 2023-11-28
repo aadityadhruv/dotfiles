@@ -47,7 +47,31 @@
       loop:
         - .vimrc
 
+    - name: Setup vundle
+      become: true
+      become_user: {{ config.username }}
+      ansible.builtin.shell: 'git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && vim +PluginInstall +qall'
+      ignore_errors: true
+
+    - name: Install autoload in right directory
+      become: true
+      become_user: {{ config.username }}
+      ansible.builtin.copy:
+        src: "/home/{{ config.username }}/.vim/bundle/gruvbox-material/autoload/gruvbox_material.vim"
+        dest: "/home/{{ config.username }}/.vim/autoload/"
+      ignore_errors: true
+
+    - name: Install colors in right directory
+      become: true
+      become_user: {{ config.username }}
+      ansible.builtin.copy:
+        src: "/home/{{ config.username }}/.vim/bundle/gruvbox-material/colors/gruvbox-material.vim"
+        dest: "/home/{{ config.username }}/.vim/colors/"
+      ignore_errors: true
+
     - name: Setup vim/neovim directories
+      become: true
+      become_user: {{ config.username }}
       ansible.builtin.copy:
         src: "{{ item }}"
         dest: "/home/{{ config.username }}/.config"
