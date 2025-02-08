@@ -30,6 +30,7 @@ packages:
       - alacritty
       - git
       - neovim
+      - vim
       - bat
       - fzf
       - cmake
@@ -80,8 +81,8 @@ packages:
     dnf:
       - SDL2-devel
       - ncurses-devel
-      - mesa-va-drivers-freeworld
-      - mesa-vdpau-drivers-freeworld
+        #      - mesa-va-drivers-freeworld
+        #      - mesa-vdpau-drivers-freeworld
     flatpak:
 
   xorg:

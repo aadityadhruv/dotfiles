@@ -1,0 +1,18 @@
+- name: System Configuration
+  hosts: localhost
+  connection: local
+  vars:
+    config: "{{ lookup('file','config.yaml') | from_yaml }}"
+  tasks:
+    - name: Startup
+      debug:
+        msg: Starting system setup
+    - name: Package Management 
+      include_role:
+        name: "src/packages"
+    - name: Configs Setup
+      include_role:
+        name: "src/config"
+    - name: System setup
+      include_role:
+        name: "src/system"

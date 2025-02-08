@@ -10,12 +10,13 @@ call vundle#begin()
 
 set bs=2
 set ts=8
-set tw=80
+"set tw=80
 set  t_Co=256
 set number
 set ruler
 set shiftwidth=2 smarttab
 set expandtab
+set autochdir
 
 
 
@@ -29,6 +30,10 @@ map <F1>  :NERDTreeTabsToggle<CR>
 noremap <C-f> :Files  <CR>
 xnoremap <C-c> :s/^/\/\/ <CR>
 nmap <C-p> <Plug>MarkdownPreviewToggle
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+map <C-l> :Lines<CR>
 
 
 syntax on
@@ -44,11 +49,12 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'valloric/youcompleteme'
+" Plugin 'valloric/youcompleteme'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'tpope/vim-obsession'
+Plugin 'neoclide/coc.nvim'
 " All of your Plugins must be added before the following line
 
 let g:airline_theme='gruvbox_material'
