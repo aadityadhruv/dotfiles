@@ -14,7 +14,6 @@ packages:
       - yt-dlp-bash-completion
       - yt-dlp-zsh-completion
     flatpak:
-      - com.discordapp.Discord
       - com.valvesoftware.Steam
       - com.valvesoftware.SteamLink
       - net.rpcs3.RPCS3
@@ -30,6 +29,7 @@ packages:
       - alacritty
       - git
       - neovim
+      - vim
       - bat
       - fzf
       - cmake
@@ -52,7 +52,6 @@ packages:
       - ruby-devel
       - flatpak
     flatpak:
-      - rest.insomnia.Insomnia
 
   tools:
     dnf:
@@ -67,21 +66,16 @@ packages:
       - pipewire 
       - lm_sensors
     flatpak:
-      - im.riot.Riot
       - org.mozilla.Thunderbird
-      - md.obsidian.Obsidian
-      - com.github.GradienceTeam.Gradience
       - com.github.jeromerobert.pdfarranger
       - net.ankiweb.Anki
-      - org.signal.Signal
-      - sh.cider.Cider
 
   libraries:
     dnf:
       - SDL2-devel
       - ncurses-devel
-      - mesa-va-drivers-freeworld
-      - mesa-vdpau-drivers-freeworld
+        #      - mesa-va-drivers-freeworld
+        #      - mesa-vdpau-drivers-freeworld
     flatpak:
 
   xorg:
