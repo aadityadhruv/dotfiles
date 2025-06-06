@@ -1,0 +1,139 @@
+---
+packages:
+  gaming:
+    dnf:
+      # Wine related tools
+      - mono-complete
+      - wine
+      - wine-mono
+      - winetricks
+      # GPU Power Control
+      - corectrl
+      # Launchers
+      - legendary
+      - lutris
+      - mangohud
+
+    flatpak:
+      - ca.parallel_launcher.ParallelLauncher
+      - com.obsproject.Studio
+      - com.valvesoftware.Steam
+      - com.valvesoftware.SteamLink
+      - io.mgba.mGBA
+      - net.kuribo64.melonDS
+      - net.rpcs3.RPCS3
+      - org.DolphinEmu.dolphin-emu
+      - org.azahar_emu.Azahar
+      - org.prismlauncher.PrismLauncher
+      - org.ryujinx.Ryujinx
+
+
+
+
+  development:
+    dnf:
+      # Terminal
+      - alacritty
+      - bash
+      - bat
+      - fzf
+      - less
+      - neovim
+      - ripgrep
+      - tmux
+      - zsh
+      # Programming
+      - clang
+      - cmake
+      - ctags
+      - gcc
+      - gdb
+      - git
+      - glibc
+      - kubectl
+      - nasm
+      - valgrind
+      # Virtualization
+      - akmod-vhba
+      - akmods
+      - flatpak
+      - podman
+      - podman-compose
+      - qemu
+      - virt-manager
+      - virtio-win
+      - virtualbox-guest-additions
+      # Utilities
+      - ansible
+      - curl
+      - ftp
+      - grubby
+      - helm
+      - iperf
+      - moreutils
+      - rclone
+      - restic
+      - rsync
+      - sqlite
+      - tcpdump
+      - wireshark
+      - xxd
+      - yamllint
+      # Libraries
+      - SDL2-devel
+      - amd-ucode-firmware
+      - clang-devel
+      - glibc-devel
+      - libFAudio
+      - ncurses
+      - ncurses-devel
+      - python3
+      - python3-devel
+      - raylib
+      - raylib-devel
+    flatpak:
+
+  tools:
+    dnf:
+      # Monitoring
+      - htop
+      - lm_sensors
+      # Media
+      - ffmpeg
+      - ffmpeg-libs
+      - playerctl
+      - vlc
+      - yt-dlp
+      - yt-dlp-zsh-completion
+      # Mail
+      - abook
+      - isync
+      - msmtp
+      - neomutt
+      - notmuch
+      - vdirsyncer
+      # Network
+      - NetworkManager-tui
+      - firefox
+      - mullvad-vpn
+      - wireguard-tools
+      # Filesystem
+      - nnn
+      - tar
+      - unar
+      - unzip
+      - zip
+      # Other
+      - gnupg2
+      - gthumb
+      - okular
+      - syncthing
+    flatpak:
+      - com.github.jeromerobert.pdfarranger
+      - com.github.tchx84.Flatseal
+      - com.makemkv.MakeMKV
+      - fr.handbrake.ghb
+      - io.github.dweymouth.supersonic
+      - net.ankiweb.Anki
+      - org.gnome.EasyTAG
+      - org.gnome.seahorse.Application
