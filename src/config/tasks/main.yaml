@@ -85,32 +85,11 @@
 
   when: 'config.config.install_shell'
 
-- name: Install Dotfiles (Wayland)
+- name: Install Dotfiles
   become: true
   become_user: "{{ config.username }}"
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "/home/{{ config.username }}/.config/"
     backup: yes
-  loop: "{{ config_wayland }}"
-  when: 'config.config.install_wayland'
-
-- name: Install Dotfiles (Xorg)
-  become: true
-  become_user: "{{ config.username }}"
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "/home/{{ config.username }}/.config/"
-    backup: yes
-  loop: "{{ config_xorg }}"
-  when: 'config.config.install_xorg'
-
-- name: Install Dotfiles (All)
-  become: true
-  become_user: "{{ config.username }}"
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "/home/{{ config.username }}/.config/"
-    backup: yes
-  loop: "{{ config_all }}"
-  when: "config.config.install_xorg or config.config.install_wayland"
+  loop: "{{ config }}"

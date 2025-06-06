@@ -1,26 +1,4 @@
-- name: Wireguard Setup
-  block:
-    - name: Install Wireguard
-      ansible.builtin.dnf:
-        name: wireguard-tools
-        state: latest
-    - name: Copy Wireguard configuartion
-      ansible.builtin.copy:
-        src: "{{ config.system.wireguard.wg_path }}"
-        dest: /etc/wireguard/
-        backup: yes
-    - name: Setup WG Systemd service
-      ansible.builtin.copy:
-        src: "systemd/sys/wireguard.service"
-        dest: /etc/systemd/system/
-        backup: yes
-    - name: Enable wireguard service
-      systemd:
-        state: started
-        name: wireguard.service 
-  when: 'config.system.install_wireguard'
-
-- name: Systemd setups
+- name: Setup Systemd Services/Timers - User
   block:
     - name: Copying user systemd configs
       ansible.builtin.copy:
@@ -36,6 +14,7 @@
         state: started
         name: "{{ item }}.service"
       loop: "{{ systemd }}"
+  ignore_errors: true
   when: 'config.system.install_systemd'
 
 
