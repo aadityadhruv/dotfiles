@@ -1,0 +1,22 @@
+IMAPAccount mailbox
+Host imap.mailbox.org
+User {{ mail.primary }}
+PassCmd "secret-tool lookup password mailbox"
+Port 993
+TLSType IMAPS
+
+IMAPStore mailbox-remote
+Account mailbox
+
+MaildirStore mailbox-local
+Path ~/.local/share/mail/mailbox/
+Inbox ~/.local/share/mail/mailbox/INBOX
+SubFolders Verbatim
+
+Channel mailbox
+Far :mailbox-remote:
+Near :mailbox-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *

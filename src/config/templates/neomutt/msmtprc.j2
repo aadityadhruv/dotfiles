@@ -1,0 +1,11 @@
+account mailbox
+host smtp.mailbox.org
+from {{ mail.primary }}
+user {{ mail.primary }}
+port 465
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+tls_starttls off
+passwordeval "secret-tool lookup password mailbox"
+logfile ~/.msmtp.log

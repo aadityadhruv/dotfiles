@@ -1,95 +1,120 @@
-- name: Install shell items
+- name: Configure Terminal
   block:
-    - name: Setup ZSH 
-      ansible.builtin.dnf:
-        name: "zsh"
-        state: latest
-
-    - name: Setup oh-my-zsh
+    - name: Setup Alacritty
       become: true
-      become_user: "{{ config.username }}"
-      ansible.builtin.shell: 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
-      ignore_errors: true
-
-    - name: Setup zsh-autosuggestions
-      become: true
-      become_user: "{{ config.username }}"
-      ansible.builtin.shell: 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
-      ignore_errors: true
-
-    - name: Setup zsh-syntax-highlighting
-      become: true
-      become_user: "{{ config.username }}"
-      ansible.builtin.shell: 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-      ignore_errors: true
-
-    - name: Setup powerlevel10k
-      become: true
-      become_user: "{{ config.username }}"
-      ansible.builtin.shell: 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k'
-      ignore_errors: true
-
-    - name: Setup p10k, tmux and zshrc
-      become: true
-      become_user: "{{ config.username }}"
+      become_user: "{{ username }}"
       ansible.builtin.copy:
-        src: shell/{{ item }}
-        dest: "/home/{{ config.username }}"
+        src: alacritty/alacritty.toml
+        dest: "/home/{{ username }}/.config/alacritty/"
         backup: yes
-      loop:
-        - .p10k.zsh
-        - .zshrc
-        - .tmux.conf
 
-    - name: Setup vimrc and vim bundles
+    - name: Setup Shell
       become: true
-      become_user: "{{ config.username }}"
+      become_user: "{{ username }}"
       ansible.builtin.copy:
-        src: shell/{{ item }}
-        dest: "/home/{{ config.username }}"
+        src: shell/bashrc
+        dest: "/home/{{ username }}/.bashrc"
         backup: yes
-      loop:
-        - .vimrc
 
-    - name: Setup vundle
+    - name: Setup shell user source directory
       become: true
-      become_user: "{{ config.username }}"
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: shell/bashrc.d
+        dest: "/home/{{ username }}/.bashrc.d"
+        backup: yes
+
+    - name: Setup tmux
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: tmux/.tmux.conf
+        dest: "/home/{{ username }}"
+        backup: yes
+
+
+- name: Setup Editor
+  block:
+    - name: Setup vimrc
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: neovim/vimrc
+        dest: "/home/{{ username }}"
+        backup: yes
+
+    - name: Setup init.vim
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: neovim/init.vim
+        dest: "/home/{{ username }}/.config/nvim/"
+        backup: yes
+
+    - name: Setup Vundle
+      become: true
+      become_user: "{{ username }}"
       ansible.builtin.shell: 'git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && vim +PluginInstall +qall'
       ignore_errors: true
 
     - name: Install autoload in right directory
       become: true
-      become_user: "{{ config.username }}"
+      become_user: "{{ username }}"
       ansible.builtin.copy:
-        src: "/home/{{ config.username }}/.vim/bundle/gruvbox-material/autoload/gruvbox_material.vim"
-        dest: "/home/{{ config.username }}/.vim/autoload/"
+        src: "/home/{{ username }}/.vim/bundle/gruvbox-material/autoload/gruvbox_material.vim"
+        dest: "/home/{{ username }}/.vim/autoload/"
       ignore_errors: true
 
     - name: Install colors in right directory
       become: true
-      become_user: "{{ config.username }}"
+      become_user: "{{ username }}"
       ansible.builtin.copy:
-        src: "/home/{{ config.username }}/.vim/bundle/gruvbox-material/colors/gruvbox-material.vim"
-        dest: "/home/{{ config.username }}/.vim/colors/"
+        src: "/home/{{ username }}/.vim/bundle/gruvbox-material/colors/gruvbox-material.vim"
+        dest: "/home/{{ username }}/.vim/colors/"
       ignore_errors: true
 
-    - name: Setup vim/neovim directories
+
+- name: Configure Email
+  block:
+    - name: Setup msmtprc
       become: true
-      become_user: "{{ config.username }}"
-      ansible.builtin.copy:
-        src: "{{ item }}"
-        dest: "/home/{{ config.username }}/.config"
+      become_user: "{{ username }}"
+      ansible.builtin.template:
+        src: neomutt/msmtprc.j2
+        dest: "/home/{{ username }}/.msmtprc"
         backup: yes
-      loop:
-        - nvim
 
-  when: 'config.config.install_shell'
+    - name: Setup mbsyncrc
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.template:
+        src: neomutt/mbsyncrc.j2
+        dest: "/home/{{ username }}/.mbsyncrc"
+        backup: yes
 
-- name: Install Dotfiles
-  become: true
-  become_user: "{{ config.username }}"
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "/home/{{ config.username }}/.config/"
-    backup: yes
-  loop: "{{ config }}"
+    - name: Setup Neomutt
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.template:
+        src: neomutt/neomuttrc.j2
+        dest: "/home/{{ username }}/.mutt/neomuttrc"
+        backup: yes
+
+    - name: Setup Neomutt - Mailcap
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: neomutt/mailcap
+        dest: "/home/{{ username }}/.mutt/"
+        backup: yes
+
+
+- name: Configure Misc
+  block:
+    - name: Setup Wallpapers
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: wallpapers
+        dest: "/home/{{ username }}/.config/wallpapers"
+        backup: yes
