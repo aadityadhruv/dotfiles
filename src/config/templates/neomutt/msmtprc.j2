@@ -1,7 +1,7 @@
 account mailbox
 host smtp.mailbox.org
-from {{ mail.primary }}
-user {{ mail.primary }}
+from {{ config.mail.primary }}
+user {{ config.mail.primary }}
 port 465
 auth on
 tls on

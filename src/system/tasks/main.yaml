@@ -4,7 +4,7 @@
       ansible.builtin.copy:
         src: "systemd/user/{{ item }}.service" 
         dest: "/home/{{ username }}/.config/systemd/user/"
-      loop: "{{ systemd }}"
+      loop: "{{ system.systemd }}"
 
     - name: Enable service
       become: yes
@@ -13,9 +13,9 @@
         scope: user
         state: started
         name: "{{ item }}.service"
-      loop: "{{ systemd }}"
+      loop: "{{ system.systemd }}"
   ignore_errors: true
-  when: systemd
+  when: system.systemd
 
 
 - name: Setup DNF conf

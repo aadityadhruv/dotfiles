@@ -1,13 +1,13 @@
-set real_name = "{{ mail.name }}"
+set real_name = "{{ config.mail.name }}"
 
 # Basic settings
 set folder = "~/.local/share/mail/mailbox"
 set attach_save_dir = "~/Downloads/"
 set mbox_type = "Maildir"
-set hostname =  "{{ mail.domain }}"
-set from =  "{{ mail.primary }}"
-{% for item in mail.aliases %}
-alias {{ item.alias }} "{{ mail.name }}" "{{ item.email }}"
+set hostname =  "{{ config.mail.domain }}"
+set from =  "{{ config.mail.primary }}"
+{% for item in config.mail.aliases %}
+alias {{ item.alias }} "{{ config.mail.name }}" "{{ item.email }}"
 {% endfor %}
 
 # Folder settings
@@ -60,12 +60,12 @@ set forward_format = "Fwd: %s"
 set forward_quote
 set reverse_name
 set include
-alternates {% for item in mail.aliases -%}
+alternates {% for item in config.mail.aliases -%}
 "{{ item.email }}"
 {%- endfor %}
 
 # GPG settings
-set pgp_sign_as="{{ mail.gpg }}"
+set pgp_sign_as="{{ config.mail.gpg }}"
 set crypt_auto_sign
 
 

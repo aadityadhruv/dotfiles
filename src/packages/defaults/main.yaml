@@ -104,7 +104,7 @@ packages:
       - playerctl
       - vlc
       - yt-dlp
-      - yt-dlp-zsh-completion
+      - yt-dlp-bash-completion
       # Mail
       - abook
       - isync

@@ -14,9 +14,8 @@ This method is as intended, by using the provided flags.
 | -------- | ------- |
 | username | This is used to choose what home directory will the configuration files be installed to |
 | packages | The list of packages that should be installed. Note these are package groups | 
-| system | The system group. It can be used to configure stuff like wireguard, systemd etc. |
-| opt | Currently unimplemented, but will be used for optional installations | 
-| config | The "dotfiles" group. It installs the configuration files for various tool |
+| system | The system group. It can be used to configure stuff like systemd services etc. |
+| config | The config group. It installs the configuration files for various tools like neovim, tmux etc. |
 
 ##### Usage
 
@@ -25,12 +24,9 @@ This method is as intended, by using the provided flags.
 The following package groups are available:
 
 ```
-- gaming #Gaming tools like wine, corectrl etc.
-- development #Development tools like neovim, clang, etc.
-- tools # Various configuration utilites like btop, nmtui etc. 
-- libraries # Some libraries I use
-- xorg # Xorg specific packages like polybar
-- wayland # Wayland specific packages like waybar
+- gaming # Wine, corectrl, emulators...
+- development # Compilers, libraries...
+- tools # htop, ffmpeg, firefox...
 
 ```
 Each of these groups has `dnf` and `flatpak` packages under it, which will be installed.
@@ -38,19 +34,13 @@ Each of these groups has `dnf` and `flatpak` packages under it, which will be in
 ###### `system`
 
 The following variables are present for system:
-`wireguard`: This in itself doesn't do anything but has variable(s) under it.
-`wg_path`: This is the location of the configuration file you want to include in the notebook. 
-`install_wireguard`: Should wireguard be setup or not.
-`install_systemd`: Should systemd services be setup or not.
+`systemd`: List of systemd services to setup
 
 
 ###### `config`
 
 The following variables are present for config:
 
-`install_shell`: Should shell be setup or not. This includes zsh, zsh plugins and (neo)vim.
-`install_wayland`: Should wayland configs be setup or not. This includes configs for stuff like waybar, hyprland etc.
-`install_xorg`: Should xorg configs be setup or not. This includes configs for stuff like polybar, bspwm etc.
-`install_misc`: Should misc configs be setup or not. This is for misc packages like fonts. This has not yet been implemented.
+`mail`: Configuration for neomutt and related tools
 
 

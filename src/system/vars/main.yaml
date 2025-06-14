@@ -1,2 +1,3 @@
-systemd:
-  - syncthing
+system:
+  systemd:
+    - syncthing

@@ -1,6 +1,6 @@
 IMAPAccount mailbox
 Host imap.mailbox.org
-User {{ mail.primary }}
+User {{ config.mail.primary }}
 PassCmd "secret-tool lookup password mailbox"
 Port 993
 TLSType IMAPS
