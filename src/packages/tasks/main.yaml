@@ -16,15 +16,15 @@
   ansible.builtin.dnf:
     name: "{{ packages[item].dnf }}"
     state: latest
-  loop: "{{ config.packages }}"
+  ignore_errors: true
+  loop: "{{ packages }}"
 
 - name: Setup Flathub
   ansible.builtin.shell: 'flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
+
 - name: Installing Flatpaks
   community.general.flatpak:
     name: "{{ packages[item].flatpak }}"
     state: present 
-  loop: "{{ config.packages }}"
-- name: Installing Rust
-  ansible.builtin.shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
-  when: '"development" in config.packages'
+  ignore_errors: true
+  loop: "{{ packages }}"

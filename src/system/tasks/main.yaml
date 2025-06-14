@@ -3,7 +3,7 @@
     - name: Copying user systemd configs
       ansible.builtin.copy:
         src: "systemd/user/{{ item }}.service" 
-        dest: "/home/{{ config.username }}/.config/systemd/user/"
+        dest: "/home/{{ username }}/.config/systemd/user/"
       loop: "{{ systemd }}"
 
     - name: Enable service
@@ -15,7 +15,7 @@
         name: "{{ item }}.service"
       loop: "{{ systemd }}"
   ignore_errors: true
-  when: 'config.system.install_systemd'
+  when: systemd
 
 
 - name: Setup DNF conf

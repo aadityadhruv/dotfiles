@@ -1,8 +1,8 @@
 - name: System Configuration
   hosts: localhost
+  gather_facts: false
   connection: local
   vars:
-    config: "{{ lookup('file','config.yaml') | from_yaml }}"
   tasks:
     - name: Startup
       debug:
