@@ -1,5 +1,6 @@
 #!/bin/bash
 
+eval "$(starship init bash)"
 export DISABLE_MAGIC_FUNCTIONS=true
 export BROWSER=/usr/bin/firefox
 export EDITOR="/usr/bin/nvim"

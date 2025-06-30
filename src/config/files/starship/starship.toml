@@ -1,0 +1,31 @@
+add_newline = false
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+vimcmd_symbol = '[V](bold green)'
+vimcmd_replace_one_symbol = '[<](bold purple)'
+vimcmd_replace_symbol =  '[<](bold purple)'
+vimcmd_visual_symbol = '[<](bold yellow)'
+
+[git_branch]
+format = '[\[$branch\]]($style) '
+style = 'bright-yellow'
+
+[git_status]
+format = '$ahead_behind$stashed$modified$staged$conflicted$typechanged$untracked'
+ahead = '[>${count}](green) '
+diverged = '[${behind_count}<>${ahead_count}](green) '
+behind = '[<${count}](green) '
+untracked = '[?${count}](bright-blue) '
+stashed = '[*${count}](green) '
+modified = '[!${count}](bright-yellow) '
+staged = '[+${count}](bright-yellow) '
+
+[directory]
+style = 'green'
+
+[rust]
+disabled = true
+
+[cmake]
+disabled = true

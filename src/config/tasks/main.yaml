@@ -20,8 +20,16 @@
       become: true
       become_user: "{{ username }}"
       ansible.builtin.copy:
-        src: shell/bashrc.d
+        src: shell/bashrc.d/
         dest: "/home/{{ username }}/.bashrc.d"
+        backup: yes
+
+    - name: Setup Starship
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: starship/starship.toml
+        dest: "/home/{{ username }}/.config/starship.toml"
         backup: yes
 
     - name: Setup tmux
