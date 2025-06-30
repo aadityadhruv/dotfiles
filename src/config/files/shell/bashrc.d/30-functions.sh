@@ -4,6 +4,15 @@ get_date() {
   date +'%Y-%m-%d'
 }
 
+note() {
+  if [ -f "$HOME/Notes/general/$(get_date).md" ]; then
+    vi "$HOME/Notes/general/$(get_date).md"
+  else
+    cp "$HOME/Notes/templates/daily.md" "$HOME/Notes/general/$(get_date).md"
+    vi "$HOME/Notes/general/$(get_date).md"
+  fi
+}
+
 notebook() {
   NEW=0
   NOTEBOOK=$1
