@@ -1,0 +1,5 @@
+- name: "Install {{ item }}"
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present 
+  ignore_errors: true

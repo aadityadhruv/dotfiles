@@ -12,19 +12,12 @@
       group: root
       mode: '0644'
 
-- name: Installing DNF Packages
-  ansible.builtin.dnf:
-    name: "{{ packages[item].dnf }}"
-    state: latest
-  ignore_errors: true
-  loop: "{{ packages }}"
-
 - name: Setup Flathub
   ansible.builtin.shell: 'flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo'
 
-- name: Installing Flatpaks
-  community.general.flatpak:
-    name: "{{ packages[item].flatpak }}"
-    state: present 
-  ignore_errors: true
-  loop: "{{ packages }}"
+- name: "Install Package Group: {{ group }}"
+  ansible.builtin.include_tasks: package.yaml
+  loop: "{{ package_groups }}"
+  loop_control:
+    loop_var: "group"
+

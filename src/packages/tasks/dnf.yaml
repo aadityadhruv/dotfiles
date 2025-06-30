@@ -1,0 +1,6 @@
+---
+- name: "Install {{ item }}"
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: latest
+  ignore_errors: true

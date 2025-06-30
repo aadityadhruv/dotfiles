@@ -1,0 +1,11 @@
+---
+- name: Installing DNF Packages
+  ansible.builtin.include_tasks: dnf.yaml
+  loop: "{{ packages[group].dnf }}"
+
+- name: Installing Flatpak
+  ansible.builtin.include_tasks: flatpak.yaml
+  loop: "{{ packages[group].flatpak }}"
+
+
+

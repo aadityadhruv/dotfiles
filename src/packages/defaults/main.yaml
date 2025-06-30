@@ -40,9 +40,11 @@ packages:
       - less
       - neovim
       - ripgrep
+      - starship
       - tmux
       - zsh
       # Programming
+      - cargo
       - clang
       - cmake
       - ctags
@@ -52,6 +54,7 @@ packages:
       - glibc
       - kubectl
       - nasm
+      - rust
       - valgrind
       # Virtualization
       - akmod-vhba
@@ -76,6 +79,7 @@ packages:
       - rsync
       - sqlite
       - tcpdump
+      - uv
       - wireshark
       - xxd
       - yamllint
@@ -91,7 +95,7 @@ packages:
       - python3-devel
       - raylib
       - raylib-devel
-    flatpak:
+    flatpak: []
 
   tools:
     dnf:
@@ -106,8 +110,8 @@ packages:
       - yt-dlp
       - yt-dlp-bash-completion
       # Mail
-      - abook
       - isync
+      - khard
       - msmtp
       - neomutt
       - notmuch
