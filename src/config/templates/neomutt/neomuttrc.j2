@@ -61,7 +61,7 @@ set forward_quote
 set reverse_name
 set include
 alternates {% for item in config.mail.aliases -%}
-"{{ item.email }}"
+"{{ item.email }}"{{ ' ' }}
 {%- endfor %}
 
 # GPG settings
@@ -75,6 +75,7 @@ bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
 macro index S "<shell-escape>mbsync -a<enter>" "sync email"
 macro index a ":set confirmappend=no delete=yes\n<tag-prefix><save-message>+Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro compose A "<shell-escape>mutt_generate_attachment_commands<enter><enter-command>source /tmp/nnn_attach_cmds<enter>" "attach nnn"
 bind editor <Tab> complete-query
 bind editor \Ct complete
 

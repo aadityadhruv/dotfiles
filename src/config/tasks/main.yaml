@@ -108,6 +108,14 @@
         dest: "/home/{{ username }}/.mutt/neomuttrc"
         backup: yes
 
+    - name: Setup Neomutt - mutt_generate_attachment_commands
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: neomutt/mutt_generate_attachment_commands
+        dest: "/home/{{ username }}/.local/bin/"
+        backup: yes
+
     - name: Setup Neomutt - Mailcap
       become: true
       become_user: "{{ username }}"

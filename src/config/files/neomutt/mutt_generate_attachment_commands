@@ -1,0 +1,7 @@
+#!/bin/bash
+
+NNN_OPTS=d nnn -p /tmp/nnn_pick
+rm -f /tmp/nnn_attach_cmds
+for f in $(cat /tmp/nnn_pick); do
+  echo "push \"<attach-file> ${f}<enter>\"" >> /tmp/nnn_attach_cmds
+done
