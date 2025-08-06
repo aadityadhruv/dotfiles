@@ -48,7 +48,7 @@
       become_user: "{{ username }}"
       ansible.builtin.copy:
         src: neovim/vimrc
-        dest: "/home/{{ username }}"
+        dest: "/home/{{ username }}/.vimrc"
         backup: yes
 
     - name: Setup init.vim
