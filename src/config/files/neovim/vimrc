@@ -10,6 +10,7 @@ set expandtab
 set t_Co=256
 set number
 set ruler
+set cursorline
 
 nnoremap <C-Left> :bp<CR>
 nnoremap <C-Right> :bn<CR>
@@ -19,6 +20,18 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 noremap <C-f> :Files  <CR>
 map <C-l> :Lines <CR>
 noremap <C-b> :Buffers <CR>
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
@@ -29,6 +42,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'neoclide/coc.nvim'
 Plugin 'sainnhe/gruvbox-material'
+Plugin 'kkoomen/vim-doge'
 
 let g:AutoClosePreserveDotReg = 0
 let g:gruvbox_material_background = 'hard'
