@@ -29,3 +29,11 @@ disabled = true
 
 [cmake]
 disabled = true
+
+[username]
+disabled = true
+[hostname]
+disabled = true
+
+[dotnet]
+disabled = true
