@@ -95,7 +95,8 @@ packages:
       - python3-devel
       - raylib
       - raylib-devel
-    flatpak: []
+    flatpak:
+      - org.kicad.kicad
 
   tools:
     dnf:
@@ -141,3 +142,4 @@ packages:
       - net.ankiweb.Anki
       - org.gnome.EasyTAG
       - org.gnome.seahorse.Application
+      - org.subsurface_divelog.Subsurface
