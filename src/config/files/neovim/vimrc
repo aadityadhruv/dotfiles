@@ -6,26 +6,12 @@ set tabstop=8 softtabstop=8 shiftwidth=4 smarttab expandtab
 set t_Co=256
 set number ruler cursorline relativenumber
 set mouse=
+set completeopt+=noselect,menuone
 autocmd bufreadpre *.md setlocal textwidth=80
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 noremap <C-f> :Files  <CR>
 map <C-l> :Lines <CR>
 noremap <C-b> :Buffers <CR>
-nmap <silent><nowait> gd <Plug>(coc-definition)
-nmap <silent><nowait> gy <Plug>(coc-type-definition)
-nmap <silent><nowait> gi <Plug>(coc-implementation)
-nmap <silent><nowait> gr <Plug>(coc-references)
-nnoremap <silent> K :call ShowDocumentation()<CR>
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
@@ -34,10 +20,6 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-fugitive'
-Plugin 'neoclide/coc.nvim'
-Plugin 'wellle/context.vim'
-
-let g:AutoClosePreserveDotReg = 0
 
 set background=dark
 colorscheme retrobox

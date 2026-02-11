@@ -59,6 +59,21 @@
         dest: "/home/{{ username }}/.config/nvim/"
         backup: yes
 
+    - name: Setup neovim lua configs
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: neovim/lua/
+        dest: "/home/{{ username }}/.config/nvim/lua"
+        backup: yes
+    - name: Setup neovim lsp
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.copy:
+        src: neovim/lsp/
+        dest: "/home/{{ username }}/.config/nvim/lsp"
+        backup: yes
+
     - name: Setup Vundle
       become: true
       become_user: "{{ username }}"
