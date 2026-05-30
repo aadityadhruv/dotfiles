@@ -27,9 +27,6 @@ packages:
       - org.prismlauncher.PrismLauncher
       - org.ryujinx.Ryujinx
 
-
-
-
   development:
     dnf:
       # Terminal
@@ -42,7 +39,6 @@ packages:
       - ripgrep
       - starship
       - tmux
-      - zsh
       # Programming
       - cargo
       - clang
@@ -93,8 +89,6 @@ packages:
       - ncurses-devel
       - python3
       - python3-devel
-      - raylib
-      - raylib-devel
     flatpak:
       - org.kicad.kicad
 
@@ -131,7 +125,6 @@ packages:
       # Other
       - gnupg2
       - gthumb
-      - okular
       - syncthing
     flatpak:
       - com.github.jeromerobert.pdfarranger

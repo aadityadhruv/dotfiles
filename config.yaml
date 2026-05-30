@@ -1,3 +1,6 @@
 ---
 username: aaditya
-package_groups: []
+package_groups:
+  - gaming
+  - development
+  - tools

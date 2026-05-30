@@ -7,8 +7,6 @@
       loop: "{{ system.systemd }}"
 
     - name: Enable service
-      become: yes
-      become_user: aaditya
       systemd:
         scope: user
         state: started
