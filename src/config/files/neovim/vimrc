@@ -5,7 +5,8 @@ set bs=2
 set tabstop=8 softtabstop=8 shiftwidth=4 smarttab expandtab
 set t_Co=256
 set number ruler cursorline relativenumber
-set mouse=
+set mouse=vn
+set scrolloff=5
 set completeopt+=noselect,menuone
 autocmd bufreadpre *.md setlocal textwidth=80
 
