@@ -5,12 +5,7 @@ get_date() {
 }
 
 note() {
-  if [ -f "$HOME/Notes/general/$(get_date).md" ]; then
-    vi "$HOME/Notes/general/$(get_date).md"
-  else
-    cp "$HOME/Notes/templates/daily.md" "$HOME/Notes/general/$(get_date).md"
-    vi "$HOME/Notes/general/$(get_date).md"
-  fi
+    vi "$HOME/Notes/general/inbox.md"
 }
 
 notebook() {
