@@ -3,7 +3,10 @@
 get_date() {
   date +'%Y-%m-%d'
 }
-
+today() {
+    khal list
+    todo list --due 24
+}
 note() {
     vi "$HOME/Notes/general/inbox.md"
 }
