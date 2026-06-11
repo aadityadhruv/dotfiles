@@ -3,31 +3,30 @@
     - name: Setup Alacritty
       ansible.builtin.copy:
         src: alacritty/alacritty.toml
-        dest: "/home/{{ username }}/.config/alacritty/"
+        dest: "~/.config/alacritty/"
         backup: yes
 
     - name: Setup Shell
       ansible.builtin.copy:
         src: shell/bashrc
-        dest: "/home/{{ username }}/.bashrc"
+        dest: "~/.bashrc"
         backup: yes
 
     - name: Setup shell user source directory
       ansible.builtin.copy:
         src: shell/bashrc.d/
-        dest: "/home/{{ username }}/.bashrc.d"
-        backup: yes
+        dest: "~/.bashrc.d"
 
     - name: Setup Starship
       ansible.builtin.copy:
         src: starship/starship.toml
-        dest: "/home/{{ username }}/.config/starship.toml"
+        dest: "~/.config/starship.toml"
         backup: yes
 
     - name: Setup tmux
       ansible.builtin.copy:
         src: tmux/.tmux.conf
-        dest: "/home/{{ username }}"
+        dest: "~/.tmux.conf"
         backup: yes
 
 
@@ -36,24 +35,24 @@
     - name: Setup vimrc
       ansible.builtin.copy:
         src: neovim/vimrc
-        dest: "/home/{{ username }}/.vimrc"
+        dest: "~/.vimrc"
         backup: yes
 
     - name: Setup init.vim
       ansible.builtin.copy:
         src: neovim/init.vim
-        dest: "/home/{{ username }}/.config/nvim/init.vim"
+        dest: "~/.config/nvim/init.vim"
         backup: yes
 
     - name: Setup neovim lua configs
       ansible.builtin.copy:
         src: neovim/lua/
-        dest: "/home/{{ username }}/.config/nvim/lua"
+        dest: "~/.config/nvim/lua"
         backup: yes
     - name: Setup neovim lsp
       ansible.builtin.copy:
         src: neovim/lsp/
-        dest: "/home/{{ username }}/.config/nvim/lsp"
+        dest: "~/.config/nvim/lsp"
         backup: yes
 
     - name: Setup Vundle
@@ -65,38 +64,60 @@
     - name: Setup msmtprc
       ansible.builtin.template:
         src: neomutt/msmtprc.j2
-        dest: "/home/{{ username }}/.msmtprc"
+        dest: "~/.msmtprc"
         backup: yes
 
     - name: Setup mbsyncrc
       ansible.builtin.template:
         src: neomutt/mbsyncrc.j2
-        dest: "/home/{{ username }}/.mbsyncrc"
+        dest: "~/.mbsyncrc"
         backup: yes
 
     - name: Setup Neomutt
       ansible.builtin.template:
         src: neomutt/neomuttrc.j2
-        dest: "/home/{{ username }}/.mutt/neomuttrc"
+        dest: "~/.mutt/neomuttrc"
         backup: yes
 
     - name: Setup Neomutt - mutt_generate_attachment_commands
       ansible.builtin.copy:
         src: neomutt/mutt_generate_attachment_commands
-        dest: "/home/{{ username }}/.local/bin/"
+        dest: "~/.local/bin/"
         backup: yes
 
     - name: Setup Neomutt - Mailcap
       ansible.builtin.copy:
         src: neomutt/mailcap
-        dest: "/home/{{ username }}/.mutt/"
+        dest: "~/.mutt/"
         backup: yes
 
 
 - name: Configure Misc
   block:
+    - name: Setup vdirsyncer
+      ansible.builtin.copy:
+        src: caldav/vdirsyncer
+        dest: "~/.vdirsyncer/config"
+    - name: Setup todoman
+      ansible.builtin.copy:
+        src: caldav/todoman.py
+        dest: "~/.config/todoman/config.py"
+    - name: Setup khal
+      ansible.builtin.copy:
+        src: caldav/khal
+        dest: "~/.config/khal/config"
+    - name: Setup khard
+      ansible.builtin.copy:
+        src: caldav/khard.conf
+        dest: "~/.config/khard/khard.conf"
+    - name: vdirsyncer - discover
+      ansible.builtin.shell: "yes | vdirsyncer discover"
+    - name: vdirsyncer - sync 
+      ansible.builtin.shell: "yes | vdirsyncer sync"
+    - name: vdirsyncer - metasync
+      ansible.builtin.shell: "yes | vdirsyncer metasync"
     - name: Setup Wallpapers
       ansible.builtin.copy:
         src: wallpapers
-        dest: "/home/{{ username }}/.config/wallpapers"
+        dest: "~/.config/wallpapers"
         backup: yes

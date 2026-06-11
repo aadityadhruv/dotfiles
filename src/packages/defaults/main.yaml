@@ -49,6 +49,7 @@ packages:
       - git
       - glibc
       - kubectl
+      - k9s
       - nasm
       - rust
       - valgrind
@@ -61,6 +62,7 @@ packages:
       - qemu
       - virt-manager
       - virtio-win
+      - virtme-ng
       - virtualbox-guest-additions
       # Utilities
       - ansible
@@ -106,10 +108,12 @@ packages:
       - yt-dlp-bash-completion
       # Mail
       - isync
+      - khal
       - khard
       - msmtp
       - neomutt
       - notmuch
+      - todoman
       - vdirsyncer
       # Network
       - NetworkManager-tui

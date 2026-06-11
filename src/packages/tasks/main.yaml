@@ -23,3 +23,9 @@
   loop_control:
     loop_var: "group"
 
+- name: Install UV packages - todoman
+  ansible.builtin.shell: 'uv tool install todoman'
+- name: Install UV packages - ty
+  ansible.builtin.shell: 'uv tool install ty'
+- name: Install UV packages - khard
+  ansible.builtin.shell: 'uv tool install khard'

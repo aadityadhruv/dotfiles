@@ -1,0 +1,15 @@
+[calendars]
+
+[[calendar]]
+path = /home/aaditya/.mailbox/calendar/*
+type = discover
+
+[locale]
+timeformat = %I:%M %p
+dateformat = %d/%m/%Y
+longdateformat = %d/%m/%Y
+datetimeformat = %d/%m/%Y %I:%M %p
+longdatetimeformat = %d/%m/%Y %I:%M %p
+
+[default]
+default_calendar = 'Calendar'

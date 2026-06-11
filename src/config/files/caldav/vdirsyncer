@@ -1,0 +1,38 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair contacts]
+a = "mailbox_contacts_local"
+b = "mailbox_contacts_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+
+[storage mailbox_contacts_local]
+type = "filesystem"
+path = "~/.mailbox/contacts"
+fileext = ".vcf"
+
+[storage mailbox_contacts_remote]
+type = "carddav"
+url = "https://dav.mailbox.org/caldav/"
+username = "aadityadhruv@mailbox.org"
+password.fetch = ["command", "secret-tool", "lookup", "password", "mailbox"]
+
+[pair calendar]
+a = "mailbox_calendar_local"
+b = "mailbox_calendar_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+metadata = ["color", "displayname", "description", "order"]
+
+[storage mailbox_calendar_local]
+type = "filesystem"
+path = "~/.mailbox/calendar"
+fileext = ".ics"
+
+[storage mailbox_calendar_remote]
+type = "caldav"
+url = "https://dav.mailbox.org/caldav/"
+username = "aadityadhruv@mailbox.org"
+password.fetch = ["command", "secret-tool", "lookup", "password", "mailbox"]
+
