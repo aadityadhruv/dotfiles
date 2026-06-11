@@ -18,4 +18,8 @@ vim.keymap.set('n', 'gd', function()
   vim.diagnostic.open_float()
 end)
 
+vim.pack.add({
+    'https://github.com/stevearc/oil.nvim',
+})
+require("oil").setup()
 vim.lsp.enable({'clangd', 'ty'})
