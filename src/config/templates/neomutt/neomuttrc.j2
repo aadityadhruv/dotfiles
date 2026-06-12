@@ -78,6 +78,7 @@ macro index a ":set confirmappend=no delete=yes\n<tag-prefix><save-message>+Arch
 macro compose A "<shell-escape>mutt_generate_attachment_commands<enter><enter-command>source /tmp/nnn_attach_cmds<enter>" "attach nnn"
 bind editor <Tab> complete-query
 bind editor \Ct complete
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 
 # Contacts

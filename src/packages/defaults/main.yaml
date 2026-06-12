@@ -114,6 +114,7 @@ packages:
       - neomutt
       - notmuch
       - todoman
+      - urlscan
       - vdirsyncer
       # Network
       - NetworkManager-tui
