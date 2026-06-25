@@ -37,7 +37,6 @@ packages:
       - less
       - neovim
       - ripgrep
-      - starship
       - tmux
       # Programming
       - cargo

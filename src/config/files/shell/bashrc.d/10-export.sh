@@ -12,4 +12,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 source <(kubectl completion bash)
 source <(fzf --bash)
-eval "$(starship init bash)"
+export PS1='\[\e[92m\]\w\[\e[0m\] \n\[\e[92m\]\\$\[\e[0m\] '

@@ -17,12 +17,6 @@
         src: shell/bashrc.d/
         dest: "~/.bashrc.d"
 
-    - name: Setup Starship
-      ansible.builtin.copy:
-        src: starship/starship.toml
-        dest: "~/.config/starship.toml"
-        backup: yes
-
     - name: Setup tmux
       ansible.builtin.copy:
         src: tmux/.tmux.conf
