@@ -32,6 +32,11 @@
         dest: "~/.vimrc"
         backup: yes
 
+    - name: Ensure nvim dir exists
+      ansible.builtin.file:
+        path: "~/.config/nvim/"
+        state: directory
+
     - name: Setup init.vim
       ansible.builtin.copy:
         src: neovim/init.vim
@@ -43,6 +48,7 @@
         src: neovim/lua/
         dest: "~/.config/nvim/lua"
         backup: yes
+
     - name: Setup neovim lsp
       ansible.builtin.copy:
         src: neovim/lsp/
@@ -67,6 +73,11 @@
         dest: "~/.mbsyncrc"
         backup: yes
 
+    - name: Ensure mutt dir exists
+      ansible.builtin.file:
+        path: "~/.mutt"
+        state: directory
+
     - name: Setup Neomutt
       ansible.builtin.template:
         src: neomutt/neomuttrc.j2
@@ -88,6 +99,15 @@
 
 - name: Configure Misc
   block:
+    - name: Ensure misc dirs exists
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - "~/.vdirsyncer"
+        - "~/.config/todoman"
+        - "~/.config/khal"
+        - "~/.config/khard"
     - name: Setup vdirsyncer
       ansible.builtin.copy:
         src: caldav/vdirsyncer

@@ -129,6 +129,7 @@ packages:
       # Other
       - gnupg2
       - gthumb
+      - pass
       - syncthing
     flatpak:
       - com.github.jeromerobert.pdfarranger
