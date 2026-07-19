@@ -26,27 +26,15 @@
 
 - name: Setup Editor
   block:
-    - name: Setup vimrc
-      ansible.builtin.copy:
-        src: neovim/vimrc
-        dest: "~/.vimrc"
-        backup: yes
-
     - name: Ensure nvim dir exists
       ansible.builtin.file:
         path: "~/.config/nvim/"
         state: directory
 
-    - name: Setup init.vim
+    - name: Setup init.lua
       ansible.builtin.copy:
-        src: neovim/init.vim
-        dest: "~/.config/nvim/init.vim"
-        backup: yes
-
-    - name: Setup neovim lua configs
-      ansible.builtin.copy:
-        src: neovim/lua/
-        dest: "~/.config/nvim/lua"
+        src: neovim/init.lua
+        dest: "~/.config/nvim/init.lua"
         backup: yes
 
     - name: Setup neovim lsp
@@ -54,10 +42,6 @@
         src: neovim/lsp/
         dest: "~/.config/nvim/lsp"
         backup: yes
-
-    - name: Setup Vundle
-      ansible.builtin.shell: 'git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && vim +PluginInstall +qall'
-      ignore_errors: true
 
 - name: Configure Email
   block:
