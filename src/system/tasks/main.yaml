@@ -1,24 +1,5 @@
-- name: Setup Systemd Services/Timers - User
-  block:
-    - name: Copying user systemd configs
-      ansible.builtin.copy:
-        src: "systemd/user/{{ item }}.service" 
-        dest: "/home/{{ username }}/.config/systemd/user/"
-      loop: "{{ system.systemd }}"
-
-    - name: Enable service
-      systemd:
-        scope: user
-        state: started
-        name: "{{ item }}.service"
-      loop: "{{ system.systemd }}"
-  ignore_errors: true
-  when: system.systemd
-
-
 - name: Setup DNF conf
   ansible.builtin.copy:
     src: "dnf/dnf.conf"
     dest: /etc/dnf/dnf.conf
-    backup: yes 
-    become: yes
+  become: yes

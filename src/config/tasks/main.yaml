@@ -80,6 +80,27 @@
         dest: "~/.mutt/"
         backup: yes
 
+    - name: Setup mbsync service
+      ansible.builtin.copy:
+        src: neomutt/mbsync.service
+        dest: "~/.config/systemd/user/"
+
+    - name: Setup mbsync timer
+      ansible.builtin.copy:
+        src: neomutt/mbsync.timer
+        dest: "~/.config/systemd/user/"
+
+    - name: Reload mbysnc systemd user units
+      ansible.builtin.systemd:
+        daemon_reload: true
+        scope: user
+
+    - name: Enable and start mbsync timer
+      ansible.builtin.systemd:
+        name: mbsync.timer
+        enabled: true
+        state: started
+        scope: user
 
 - name: Configure Misc
   block:
