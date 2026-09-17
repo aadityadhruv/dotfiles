@@ -112,7 +112,6 @@ packages:
       - msmtp
       - neomutt
       - notmuch
-      - todoman
       - urlscan
       - vdirsyncer
       # Network

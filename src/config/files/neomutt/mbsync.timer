@@ -2,8 +2,9 @@
 Description=Run mbsync every 10 minutes
 
 [Timer]
+OnBootSec=2min
 OnUnitActiveSec=10min
-Persistent=true
+Persistent=false
 
 [Install]
 WantedBy=timers.target
